@@ -1,6 +1,6 @@
 {
   "name": "rn-section-grid-list",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "SectionList with columns",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
