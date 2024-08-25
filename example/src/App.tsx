@@ -2,13 +2,19 @@ import React, { useMemo } from 'react';
 import { Dimensions, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { SectionGridList } from 'rn-section-grid-list';
 
+const SECTIONS = {
+  'Section #1': { data: ['10', '11', '12'], color: '#EF5350' },
+  'Section #2': { data: ['20', '21', '22', '23', '24'], color: '#42A5F5' },
+  'Section #3': { data: ['30'], color: '#66BB6A' },
+  'Section #4': {
+    data: ['40', '41', '42', '43', '44', '45', '46', '47'],
+    color: '#FFCA28',
+  },
+};
+
 export default function App() {
   const sections = useMemo(
-    () => [
-      { data: ['00', '11', '22'], key: 'Section #1' },
-      { data: ['33', '44', '55', '66', '77'], key: 'Section #2' },
-      { data: ['88'], key: 'Section #3' },
-    ],
+    () => Object.entries(SECTIONS).map(([key, { data }]) => ({ key, data })),
     []
   );
 
@@ -20,8 +26,16 @@ export default function App() {
           <Text style={styles.sectionHeaderText}>{section.key}</Text>
         )}
         numColumns={3}
-        renderItem={({ item }) => (
-          <View style={styles.item}>
+        renderItem={({ item, section }) => (
+          <View
+            style={[
+              styles.item,
+              {
+                backgroundColor:
+                  SECTIONS[section.key as keyof typeof SECTIONS].color,
+              },
+            ]}
+          >
             <Text>{item}</Text>
           </View>
         )}
