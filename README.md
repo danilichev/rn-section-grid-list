@@ -2,6 +2,10 @@
 
 This package for React Native provides SectionGridList component which works the same as usual SectionList but also adds the ability to render columns in sections by providing numColumns parameter (as in FlatList).
 
+<!-- ![Screenshot](assets/screenshot.png) -->
+
+<img src="assets/screenshot.png" alt="Screenshot" width="320">
+
 ## Installation
 
 ```sh
